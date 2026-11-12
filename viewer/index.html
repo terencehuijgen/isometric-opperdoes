@@ -1526,6 +1526,7 @@ Werk stap voor stap, controleer de licenties van de data die je gebruikt, en vra
         [-0.12, 0.12, 0.2, 0.8 + lift, 1.4 + lift, p.coat],
         [-0.09, 0.09, 0.09, 1.42 + lift, 1.62 + lift, p.skin],
         [-0.1, 0.06, 0.1, 1.6 + lift, 1.68 + lift, p.hair],
+        ...(p.longHair ? [[-0.14, -0.07, 0.12, 1.28 + lift, 1.65 + lift, p.hair]] : []),
       ])];
     });
     let lead = null;
@@ -1623,6 +1624,29 @@ Werk stap voor stap, controleer de licenties van de data die je gebruikt, en vra
     ctx.stroke();
   }
 
+  // A permanent couple and their dog, starting beside Nieuweweg 19 (BAG RD 133894,529904).
+  // The polyline follows the connected OSM Nieuweweg ways; distance is in metres.
+  const dogWalkRoute = [[-18.477, 608.28], [-17.903, 606.658], [-16.734, 603.369], [-15.531, 598.267], [-14.651, 592.985], [-14.586, 590.415], [-14.487, 586.443], [-15.721, 578.036], [-23.425, 545.299], [-32.973, 504.742], [-43.011, 462.069], [-58.672, 395.548], [-70.361, 346.013], [-72.161, 339.162], [-96.735, 237.249], [-112.463, 169.558], [-115.439, 156.738], [-121.215, 132.544], [-125.101, 116.347], [-138.023, 66.606], [-156.447, -12.746], [-185.742, -133.497], [-188.085, -147.361], [-187.678, -161.97], [-186.69, -174.918], [-180.578, -222.139], [-179.76, -233.241], [-179.621, -248.218]];
+  const dogWalkCum = [0];
+  for (let i = 1; i < dogWalkRoute.length; i++) dogWalkCum.push(dogWalkCum[i - 1] + Math.hypot(dogWalkRoute[i][0] - dogWalkRoute[i - 1][0], dogWalkRoute[i][1] - dogWalkRoute[i - 1][1]));
+  const dogWalk = { mode: WALK, type: 'walker', alpha: 1, speed: 0.7, wait: 0, run: false, stride: 0,
+    people: [
+      { coat: [170, 55, 64], legs: [45, 47, 62], skin: [226, 186, 152], hair: [98, 62, 34], side: -0.75, longHair: true },
+      { coat: [45, 85, 135], legs: [44, 45, 52], skin: [226, 186, 152], hair: [60, 43, 32], side: 0.15 },
+    ], dog: { coat: [160, 111, 65], big: 1, phase: 0 } };
+  function dogWalkPosition() {
+    const length = dogWalkCum.at(-1), phase = (520.212 + clock * dogWalk.speed) % (2 * length);
+    const forward = phase < length, distance = forward ? phase : 2 * length - phase;
+    let i = 0;
+    while (i < dogWalkRoute.length - 2 && dogWalkCum[i + 1] < distance) i++;
+    const a = dogWalkRoute[i], b = dogWalkRoute[i + 1], seg = dogWalkCum[i + 1] - dogWalkCum[i];
+    const t = (distance - dogWalkCum[i]) / seg, ux = (b[0] - a[0]) / seg, uz = (b[1] - a[1]) / seg;
+    const direction = forward ? 1 : -1;
+    dogWalk.stride = clock * 3.2;
+    // Stay on the same roadside when turning around, with both people beside the dog on its lead.
+    return [a[0] + (b[0] - a[0]) * t - uz * 1.4, a[1] + (b[1] - a[1]) * t + ux * 1.4, ux * direction, uz * direction];
+  }
+
   function draw() {
     const dpr = window.devicePixelRatio || 1;
     const cw = Math.round(layer.clientWidth * dpr), ch = Math.round(layer.clientHeight * dpr);
@@ -1644,6 +1668,8 @@ Werk stap voor stap, controleer de licenties van de data die je gebruikt, en vra
       const [x, z, dx, dz] = place(m);
       if (inView(x, z, 0)) (objectsLayer && m.behind ? behind : front).push([depthOf(x, z), m, x, z, dx, dz]);
     }
+    const [wx, wz, wdx, wdz] = dogWalkPosition();
+    if (k >= 0.35 && inView(wx, wz, 0)) (objectsLayer ? behind : front).push([depthOf(wx, wz), dogWalk, wx, wz, wdx, wdz]);
     // The dippers sit low in open water: drawn under the buildings and trees layer, so whatever stands in front hides them.
     dippers ||= makeDippers();
     if (false && k >= 0.35 && inView(dippers.x, dippers.z, 0)) (objectsLayer ? behind : front).push([depthOf(dippers.x, dippers.z), dippers, dippers.x, dippers.z, 0, 0]);
