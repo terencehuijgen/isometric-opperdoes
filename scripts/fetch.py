@@ -13,7 +13,7 @@ from concurrent.futures import ThreadPoolExecutor
 
 from config import CHUNK, NX, NY, RAW, XMAX, XMIN, YMAX, YMIN
 
-UA = {"User-Agent": "isometric-helenaveen/0.1"}
+UA = {"User-Agent": "isometric-opperdoes/0.1"}
 RD = "http://www.opengis.net/def/crs/EPSG/0/28992"
 
 BGT_COLLECTIONS = [
@@ -140,7 +140,7 @@ def fetch_addresses():
     pts, start = [], 0
     while True:
         q = urllib.parse.urlencode(
-            {"q": "*", "fq": ["woonplaatsnaam:Helenaveen", "type:adres"], "fl": "weergavenaam,centroide_rd", "rows": 100, "start": start},
+            {"q": "*", "fq": ["woonplaatsnaam:Opperdoes", "type:adres"], "fl": "weergavenaam,centroide_rd", "rows": 100, "start": start},
             doseq=True,
         )
         d = get(f"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?{q}")["response"]

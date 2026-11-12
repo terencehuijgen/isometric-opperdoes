@@ -3,18 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Isometrisch Helenaveen</title>
-<meta name="description" content="Het veendorp Helenaveen in miniatuur, nagebouwd uit openbare kaarten, hoogtemetingen en een luchtfoto.">
+<title>Isometrisch Opperdoes</title>
+<meta name="description" content="Het dorp Opperdoes in miniatuur, nagebouwd uit openbare kaarten, hoogtemetingen en een luchtfoto.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://jankeesvw.github.io/isometric-helenaveen/">
-<meta property="og:title" content="Isometrisch Helenaveen">
-<meta property="og:description" content="Het veendorp Helenaveen in miniatuur, nagebouwd uit openbare kaarten, hoogtemetingen en een luchtfoto.">
-<meta property="og:image" content="https://jankeesvw.github.io/isometric-helenaveen/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Helenaveen in isometrische pixel art op een avond, met de kerk, de Helenavaart en brandende straatlantaarns">
+<meta property="og:url" content="https://terencehuijgen.github.io/isometric-opperdoes/">
+<meta property="og:image" content="https://terencehuijgen.github.io/isometric-opperdoes/og.png">
+<meta property="og:image:alt" content="Opperdoes en omliggende akkers in isometrische pixel art">
+<meta property="og:title" content="Isometrisch Opperdoes">
+<meta property="og:description" content="Het dorp Opperdoes in miniatuur, nagebouwd uit openbare kaarten, hoogtemetingen en een luchtfoto.">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://jankeesvw.github.io/isometric-helenaveen/og.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
@@ -206,7 +203,7 @@
   #legend i { display: inline-block; width: 18px; height: 0; border-top: 3px dashed #e2574c; vertical-align: middle; margin-right: 4px; }
   #legend i.long { border-top: 4px solid #f2c14e; }
   #legend b { font-weight: inherit; }
-  /* Helenaveen van toen: a guided tour with a paper card for each stop. */
+  /* Opperdoes van toen: a guided tour with a paper card for each stop. */
   body.tour #readout, body.tour #minimap-frame { display: none; }
   .stop {
     width: 26px;
@@ -342,7 +339,7 @@
 </style>
 </head>
 <body>
-<div id="map" aria-label="Isometrische kaart van Helenaveen" data-en-label="Isometric map of Helenaveen"></div>
+<div id="map" aria-label="Isometrische kaart van Opperdoes" data-en-label="Isometric map of Opperdoes"></div>
 <svg width="0" height="0" style="position: absolute" aria-hidden="true">
   <filter id="dusk" color-interpolation-filters="sRGB">
     <feColorMatrix type="matrix" values="0.24 0.05 0.02 0 0  0.04 0.28 0.06 0 0.01  0.05 0.11 0.46 0 0.04  0 0 0 1 0"/>
@@ -353,30 +350,25 @@
 
 <section id="intro" class="panel">
   <div class="intro-head">
-    <h1>Helenaveen</h1>
+    <h1>Opperdoes</h1>
     <button type="button" id="intro-toggle" aria-expanded="true" aria-controls="intro-body" aria-label="Menu in- of uitklappen" data-en-label="Show or hide the menu"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   </div>
   <div id="intro-body">
-  <p data-en="The peat village on the Helenavaart canal in miniature, from the A67 motorway to the Willem III farm.">Het veendorp aan de Helenavaart in miniatuur, van de A67 tot de Willem III-hoeve.</p>
+  <p data-en="Opperdoes and its West Frisian countryside in miniature.">Opperdoes en het West-Friese landschap in miniatuur.</p>
   <p class="long" data-en="Every house, every greenhouse and every tree stands in its real place, rebuilt from public maps, height measurements and an aerial photo. Scroll or pinch to zoom, or look up an address below.">Elk huis, elke kas en elke boom staat op zijn echte plek, nagebouwd uit openbare kaarten, hoogtemetingen en een luchtfoto. Scroll of knijp om te zoomen, of zoek hieronder een adres.</p>
   <form id="search" role="search">
     <input id="goto" list="place-list" placeholder="Ga naar een adres of plek…" autocomplete="off" aria-label="Ga naar een adres of plek" data-en-placeholder="Go to an address or place…" data-en-label="Go to an address or place">
     <datalist id="place-list"></datalist>
   </form>
   <div id="found" aria-live="polite"></div>
-  <div id="legend"><span><i></i><b data-en="Walking junctions">Wandelknooppunten</b></span><span><i class="long"></i><b data-en="LAW 13 trail Dwars door Brabant">LAW 13 Dwars door Brabant</b></span></div>
+  <div id="legend"><span><i></i><b data-en="Walking junctions">Wandelknooppunten</b></span><span><i class="long"></i><b data-en="Long-distance routes">Langeafstandsroutes</b></span></div>
   <div id="places" role="group" aria-label="Snel naar" data-en-label="Go to">
-    <button type="button" data-rd="191850,377850" data-en="Village">Dorp</button>
-    <button type="button" data-place="Sint-Willibrorduskerk" data-en="Church">Kerk</button>
-    <button type="button" data-rd="192280,377570" data-en="Greenhouses">Kassen</button>
-    <button type="button" data-rd="192750,378900">Peel</button>
-    <button type="button" data-place="Hoeve Willem III">Willem III</button>
-    <button type="button" data-rd="191950,376660">A67</button>
+    <button type="button" data-rd="134006.545,530038.617" data-en="Village">Dorp</button>
     <button type="button" id="routes-toggle" aria-pressed="false" data-en="Walking routes">Wandelroutes</button>
   </div>
   <div id="series" role="group" aria-label="Ontdek" data-en-label="Explore">
     <span data-en="Explore">Ontdek</span>
-    <button type="button" id="tour-toggle" aria-pressed="false" data-en="Helenaveen back then">Helenaveen van toen</button>
+    <button type="button" hidden id="tour-toggle" aria-pressed="false" data-en="Opperdoes back then">Opperdoes van toen</button>
   </div>
   </div>
 </section>
@@ -393,7 +385,7 @@
 <div id="readout" class="panel">
   <div id="coords"><b>GPS</b> 51,3886° N · 5,9166° O</div>
   <div id="scale">1 pixel = 25 cm</div>
-  <div class="credits" data-en-html="Data: &lt;a href=&quot;https://3dbag.nl&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;3D BAG&lt;/a&gt;, BGT, AHN and aerial photo via &lt;a href=&quot;https://www.pdok.nl&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;PDOK&lt;/a&gt;, &lt;a href=&quot;https://www.openstreetmap.org/copyright&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;OpenStreetMap&lt;/a&gt;">Data: <a href="https://3dbag.nl" target="_blank" rel="noopener">3D BAG</a>, BGT, AHN en luchtfoto via <a href="https://www.pdok.nl" target="_blank" rel="noopener">PDOK</a>, <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a></div>
+  <div class="credits">© <a href="https://docs.3dbag.nl/nl/copyright/" target="_blank" rel="noopener">3DBAG door tudelft3d en 3DGI</a> · BGT: Kadaster · AHN: Rijkswaterstaat / Het Waterschapshuis · Luchtfoto: Beeldmateriaal Nederland via PDOK · <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> · <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">© OpenStreetMap-bijdragers, ODbL</a> · Gegevens bewerkt tot pixel-art. <a href="credits.html">Bronnen en credits</a></div>
 </div>
 
 <div id="minimap-frame" class="panel" aria-hidden="true"><div id="minimap"></div></div>
@@ -448,7 +440,7 @@ Werk stap voor stap, controleer de licenties van de data die je gebruikt, en vra
 </dialog>
 <div id="tip" hidden></div>
 
-<section id="tour" class="card" hidden aria-live="polite" aria-label="Rondleiding Helenaveen van toen" data-en-label="Tour: Helenaveen back then">
+<section id="tour" class="card" hidden aria-live="polite" aria-label="Rondleiding Opperdoes van toen" data-en-label="Tour: Opperdoes back then">
   <div class="card-head"><span id="tour-year"></span><span id="tour-count"></span></div>
   <h2 id="tour-title"></h2>
   <figure id="tour-figure" hidden><div id="tour-frame" class="frame"><img id="tour-img" alt=""></div><div id="tour-dots"></div><figcaption id="tour-credit"></figcaption></figure>
@@ -496,7 +488,7 @@ Werk stap voor stap, controleer de licenties van de data die je gebruikt, en vra
   const ATTRS = [['enLabel', 'aria-label'], ['enTitle', 'title'], ['enPlaceholder', 'placeholder']];
   function applyLang() {
     document.documentElement.lang = LANG;
-    document.title = L('Isometrisch Helenaveen', 'Isometric Helenaveen');
+    document.title = L('Isometrisch Opperdoes', 'Isometric Opperdoes');
     for (const [en, nl, prop] of SWAPS) {
       for (const el of document.querySelectorAll(`[data-${en.replace(/[A-Z]/g, (c) => '-' + c.toLowerCase())}]`)) {
         if (el.dataset[nl] === undefined) el.dataset[nl] = el[prop];
@@ -597,7 +589,7 @@ Werk stap voor stap, controleer de licenties van de data die je gebruikt, en vra
   // The view the map opens on and the home button goes back to: the village school in the middle, at 1:1.3. The point
   // is the middle of the school building, 3 m up, so it sits in the middle whichever way the map is turned.
   function goHome(now) {
-    const vp = viewer.viewport, { x, z } = rdToLocal(191904, 377867);
+    const vp = viewer.viewport, { x, z } = rdToLocal(134006.545, 530038.617);
     vp.zoomTo(vp.imageToViewportZoom(1 / 1.3), null, now);
     vp.panTo(vp.imageToViewportCoordinates(groundToImage(x, z, 3)), now);
   }
@@ -892,7 +884,7 @@ Werk stap voor stap, controleer de licenties van de data die je gebruikt, en vra
     if (series && e.key === 'ArrowLeft') openSeries(series.cat, series.pos - 1);
   });
 
-  // Helenaveen van toen (history.json, built by scripts/build_history.py): numbered stops and a guided tour.
+  // Opperdoes van toen (history.json, built by scripts/build_history.py): numbered stops and a guided tour.
   let stops = [], stopEls = [], current = -1;
   const tourBtn = document.getElementById('tour-toggle');
   const tourEl = document.getElementById('tour');
@@ -938,7 +930,7 @@ Werk stap voor stap, controleer de licenties van de data die je gebruikt, en vra
   }
 
   // The text of the current stop, again after a language switch.
-  const READ_MORE = () => L('Lees het verhaal op Het Helenaveen van toen →', 'Read the story on Het Helenaveen van toen (in Dutch) →');
+  const READ_MORE = () => L('Meer informatie →', 'More information →');
   function renderStop() {
     const s = stops[current];
     document.getElementById('tour-year').textContent = T(s.year);
@@ -1412,7 +1404,7 @@ Werk stap voor stap, controleer de licenties van de data die je gebruikt, en vra
     const geese = Math.random() < 0.6;
     const ang = geese ? Math.atan2(1, -1) + (Math.random() - 0.5) * 1.2 : Math.random() * Math.PI * 2;
     const dx = Math.cos(ang), dz = Math.sin(ang);
-    const village = rdToLocal(191900, 378000);
+    const village = rdToLocal(134006.545, 530038.617);
     const near = Math.random() < 0.5;
     const tx = near ? village.x + (Math.random() - 0.5) * 900 : (Math.random() * 2 - 1) * M.area.hx * 0.8;
     const tz = near ? village.z + (Math.random() - 0.5) * 900 : (Math.random() * 2 - 1) * M.area.hz * 0.8;
@@ -1654,7 +1646,7 @@ Werk stap voor stap, controleer de licenties van de data die je gebruikt, en vra
     }
     // The dippers sit low in open water: drawn under the buildings and trees layer, so whatever stands in front hides them.
     dippers ||= makeDippers();
-    if (k >= 0.35 && inView(dippers.x, dippers.z, 0)) (objectsLayer ? behind : front).push([depthOf(dippers.x, dippers.z), dippers, dippers.x, dippers.z, 0, 0]);
+    if (false && k >= 0.35 && inView(dippers.x, dippers.z, 0)) (objectsLayer ? behind : front).push([depthOf(dippers.x, dippers.z), dippers, dippers.x, dippers.z, 0, 0]);
     paint(ctx, b, k, front, inView);
   }
 
@@ -1701,7 +1693,7 @@ Werk stap voor stap, controleer de licenties van de data die je gebruikt, en vra
   // A street lamp every 34 m on one side of each village street: every residential street, and the bigger roads
   // within 650 m of the church.
   function makeLamps() {
-    const village = rdToLocal(191900, 378000), done = new Set(), out = [];
+    const village = rdToLocal(134006.545, 530038.617), done = new Set(), out = [];
     for (const l of lanes) {
       const anywhere = l.c === 'residential' || l.c === 'living_street';
       if (done.has(l.e) || !(anywhere || l.c === 'tertiary' || l.c === 'unclassified')) continue;

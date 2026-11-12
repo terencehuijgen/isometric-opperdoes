@@ -483,7 +483,8 @@ function makeSlab(area) {
   const side = new THREE.MeshLambertMaterial({ map: tex });
   const top = new THREE.MeshBasicMaterial({ color: 0x3a2a1c });
   const box = new THREE.Mesh(new THREE.BoxGeometry(area.hx * 2, SLAB, area.hz * 2), [side, side, top, top, side, side]);
-  box.position.y = -SLAB / 2 - 0.02;
+  // Keep the slab below the ground across GPU depth-buffer implementations.
+  box.position.y = -SLAB / 2 - 0.5;
   return box;
 }
 
