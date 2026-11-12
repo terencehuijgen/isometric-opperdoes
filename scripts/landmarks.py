@@ -20,7 +20,7 @@ from geo import wgs_to_rd
 # Local stories will be added after residents identify the places.
 BUILDINGS = [{'name': 'Eben Haëzer-Rehobothkerk', 'latlon': (52.76146586875, 5.07985165), 'kind': 'Plek in Opperdoes', 'text': 'Deze kerk in Opperdoes wordt gebruikt door de Gereformeerde Gemeenten.', 'more': 'https://www.openstreetmap.org/way/277043588'}, {'name': 'Hervormde kerk', 'latlon': (52.7611191633803, 5.0797889845070445), 'kind': 'Plek in Opperdoes', 'text': 'De Hervormde kerk vormt een herkenningspunt in de dorpskern van Opperdoes. Rond de kerk ligt het kerkhof.', 'more': 'https://www.openstreetmap.org/way/277044675'}]
 POINTS = [{'name': 'Opperdoes', 'at': (134006.545, 530038.617), 'kind': 'Dorp', 'text': 'Opperdoes in de gemeente Medemblik, Noord-Holland. Verken het dorp en het omringende landschap.', 'more': 'https://www.medemblik.nl/'}, {'name': 'De Skoôt', 'latlon': (52.7661243, 5.0727513), 'kind': 'Plek in Opperdoes', 'text': 'Een informatiebord vertelt hier over natuur- en waterbeheergebied De Skoôt in Opperdoes.', 'more': 'https://www.openstreetmap.org/node/2379590416'}, {'name': 'Startpunt Opperdoes', 'latlon': (52.7590762, 5.0732294), 'kind': 'Plek in Opperdoes', 'text': 'Vanaf dit informatiepunt kun je het wandelnetwerk van Noord-Holland verkennen.', 'more': 'https://www.openstreetmap.org/node/12296803599'}]
-CATEGORIES = []
+CATEGORIES = [("opperdoes", "Plekken in Opperdoes", ["Hervormde kerk", "Eben Haëzer-Rehobothkerk", "De Skoôt", "Startpunt Opperdoes"])]
 INFO = ("note", "kind", "text", "address", "web", "more", "photo", "stop")
 MASTS = []
 
